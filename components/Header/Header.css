@@ -1,0 +1,72 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* Removendo backdrop e borda para deixar mais limpo */
+  background-color: transparent;
+  padding-top: var(--spacing-md);
+}
+
+.header-container {
+  max-width: var(--container-max-width-desktop);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.nav-button {
+  /* Ajustando padding e estilo dos botões do header */
+  /* Ajustando padding e estilo dos botões do header para match visual */
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(21.89392852783203px);
+  border-top: -10px solid var(--color-border);
+  box-shadow: 0 2.737px 8.21px 0 #FFF inset, 0 21.894px 32.841px 0 rgba(255, 255, 255, 0.00) inset, 0 65.682px 87.576px 0 rgba(236, 88, 8, 0.00) inset;
+
+}
+
+.button-shadow {
+  box-shadow: 0 2.737px 8.21px 0 #FFF inset, 0 21.894px 32.841px 0 rgba(255, 255, 255, 0.00) inset, 0 65.682px 87.576px 0 rgba(236, 88, 8, 0.00) inset;
+}
+
+.nav-button:hover {
+  background-color: rgba(40, 40, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.submit-button {
+  /* Estilo do botão de submissão igual aos nav buttons */
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.submit-button:hover {
+  background-color: rgba(40, 40, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+}

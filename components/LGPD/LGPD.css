@@ -1,0 +1,52 @@
+.lgpd {
+  padding: var(--spacing-section) var(--container-padding);
+  max-width: var(--container-max-width-desktop);
+  margin: 0 auto;
+}
+
+.lgpd-container {
+  /* Borda mais proeminente como no design */
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-2xl);
+  padding: 2.5rem 2rem;
+}
+
+.lgpd-title {
+  /* Título maior e centralizado */
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.25;
+}
+
+.lgpd-title span {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.lgpd-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lgpd-text {
+  /* Ajustando fonte e espaçamento */
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .lgpd-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .lgpd-title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,159 @@
+.explorer {
+  padding: var(--spacing-section) var(--container-padding);
+  max-width: var(--container-max-width-desktop);
+  margin: 0 auto;
+}
+
+.explorer-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.explorer-title {
+  /* Ajustando tamanho do título */
+  font-size: 1.75rem;
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+}
+
+.search-bar {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0.5rem 1rem;
+  /* Fundo mais escuro e borda mais sutil */
+  background-color: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+}
+
+.search-bar:focus-within {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.search-icon {
+  color: var(--color-text-muted);
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-text-primary);
+  font-size: var(--font-sm);
+}
+
+.search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+option {
+  color: #000000;
+}
+
+option {
+  color: #000000;
+}
+
+.mic-button {
+
+  padding: 0.25rem;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.mic-button:hover {
+  color: var(--color-text-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.view-all-button {
+  /* Botão com estilo consistente */
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(20, 20, 20, 0.8);
+  color: var(--color-text-primary);
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all var(--transition-normal);
+}
+
+.view-all-button:hover {
+  background-color: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.categories-grid {
+  display: grid;
+  /* Grid de 4 colunas para corresponder ao design */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.category-card {
+  position: relative;
+  /* Ajustando aspect ratio */
+  aspect-ratio: 3 / 3.8;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-normal);
+}
+
+.category-card:hover {
+  transform: scale(1.03);
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-overlay {
+  /* Overlay removido, usando estilo de pill agora */
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  background: rgba(100, 100, 100, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.category-name {
+  /* Fonte ajustada para o pill */
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  flex: 0 0 auto;
+}
+
+.category-icon {
+  /* Ícone verde consistente com o design */
+  color: var(--color-accent-green);
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 640px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

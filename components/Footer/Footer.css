@@ -1,0 +1,49 @@
+.footer {
+  /* Aumentando padding inferior */
+  padding: var(--spacing-xl) var(--container-padding) 3rem;
+  max-width: var(--container-max-width-desktop);
+  margin: 0 auto;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-button {
+  /* Botões maiores e mais robustos */
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-full);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  min-width: 160px;
+}
+
+.footer-button-primary {
+  /* Botão primário branco preenchido */
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border: 2px solid var(--color-text-primary);
+}
+
+.footer-button-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.footer-button-secondary {
+  /* Botão secundário outline */
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.footer-button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
