@@ -89,7 +89,7 @@
   /* Container ajustado para mobile-first */
   --container-max-width: 600px;
   --container-max-width-tablet: 768px;
-  --container-max-width-desktop: 1280px;
+  --container-max-width-desktop: 1400px;
   --container-padding: 1.25rem;
 
   /* Transitions */
