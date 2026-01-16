@@ -4,13 +4,20 @@ import { useState } from "react";
 import Image from "next/image";
 import { ZoomIn, X } from "lucide-react";
 
+interface GalleryImage {
+    src: string;
+    author?: string;
+    date?: string;
+    location?: string;
+}
+
 interface GalleryGridProps {
-    images: string[];
+    images: GalleryImage[];
     title: string;
 }
 
 export default function GalleryGrid({ images, title }: GalleryGridProps) {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
     if (images.length === 0) {
         return (
@@ -24,14 +31,14 @@ export default function GalleryGrid({ images, title }: GalleryGridProps) {
         <>
             {/* Gallery Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {images.map((src, index) => (
+                {images.map((image, index) => (
                     <div
                         key={index}
                         className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-white/5 cursor-pointer"
-                        onClick={() => setSelectedImage(src)}
+                        onClick={() => setSelectedImage(image)}
                     >
                         <Image
-                            src={src}
+                            src={image.src}
                             alt={`${title} image ${index + 1}`}
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -68,20 +75,26 @@ export default function GalleryGrid({ images, title }: GalleryGridProps) {
                     >
                         <div className="relative w-full h-[75vh] rounded-lg overflow-hidden mb-6">
                             <Image
-                                src={selectedImage}
+                                src={selectedImage.src}
                                 alt="Gallery Preview"
                                 fill
                                 className="object-contain drop-shadow-2xl"
                             />
                         </div>
 
-                        <div className="text-center animate-in slide-in-from-bottom-4 duration-300 bg-black/40 backdrop-blur-md px-8 py-4 rounded-full border border-white/10">
+                        <div className="text-center animate-in slide-in-from-bottom-4 duration-300 bg-black/40 backdrop-blur-md px-8 py-4 rounded-full border border-white/10 space-y-2">
                             <p className="text-white text-lg font-medium font-sans">
-                                Fotografia: <span className="text-[var(--color-accent-green)] font-semibold">Acervo Lagarto em Movimento</span>
+                                Fotografia: <span className="text-[var(--color-accent-green)] font-semibold">{selectedImage.author || "Acervo Lagarto em Movimento"}</span>
                             </p>
-                            <p className="text-white/60 text-sm mt-1 font-sans">
-                                Ano: 2025
-                            </p>
+                            <div className="flex items-center justify-center gap-4 text-white/60 text-sm font-sans">
+                                <span>{selectedImage.date || "2024"}</span>
+                                {selectedImage.location && (
+                                    <>
+                                        <span className="w-1 h-1 bg-white/40 rounded-full"></span>
+                                        <span>{selectedImage.location}</span>
+                                    </>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

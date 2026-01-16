@@ -4,8 +4,15 @@ import fs from "fs";
 import path from "path";
 import GalleryGrid from "./GalleryGrid";
 
-// Function to get images from the specific category folder
-async function getGalleryImages(category: string): Promise<string[]> {
+interface GalleryImage {
+    src: string;
+    author?: string;
+    date?: string;
+    location?: string;
+}
+
+// Function to get images and metadata from the specific category folder
+async function getGalleryImages(category: string): Promise<GalleryImage[]> {
     // Decode fully first to handle URL encoded chars like %C3%A3
     const decodedCategory = decodeURIComponent(category);
 
@@ -51,8 +58,29 @@ async function getGalleryImages(category: string): Promise<string[]> {
             /\.(jpg|jpeg|png|webp|svg)$/i.test(file)
         );
 
-        // Map to public URL paths using the REAL directory name found
-        return imageFiles.map(file => `/galeria/${matchingDir.name}/${file}`);
+        // Check for metadata.json
+        let metadata: Record<string, { author?: string; date?: string; location?: string }> = {};
+        const metadataPath = path.join(categoryPath, "metadata.json");
+
+        if (fs.existsSync(metadataPath)) {
+            try {
+                const metadataContent = await fs.promises.readFile(metadataPath, "utf-8");
+                metadata = JSON.parse(metadataContent);
+            } catch (err) {
+                console.error("Error reading metadata.json:", err);
+            }
+        }
+
+        // Map to image objects
+        return imageFiles.map(file => {
+            const fileMetadata = metadata[file] || {};
+            return {
+                src: `/galeria/${matchingDir.name}/${file}`,
+                author: fileMetadata.author,
+                date: fileMetadata.date,
+                location: fileMetadata.location
+            };
+        });
     } catch (error) {
         console.error(`Error reading gallery directory for ${category}:`, error);
         return [];
