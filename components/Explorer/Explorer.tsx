@@ -44,7 +44,7 @@ const categories = [
   },
   {
     name: "Muay Thai",
-    image: "/galeria/muay-thai/1.jpg",
+    image: "/galeria/muay-Thai/1.jpg",
   },
 
 ]
