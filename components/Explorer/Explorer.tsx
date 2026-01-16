@@ -3,6 +3,7 @@ import "./Explorer.css"
 import { Search, Mic, ArrowUpRight } from "lucide-react"
 
 import Link from "next/link"
+import { useState } from "react"
 
 const categories = [
   {
@@ -61,7 +62,13 @@ const slugify = (text: string) => {
 import { useRouter } from "next/navigation"
 
 export default function Explorer() {
-  const router = useRouter();
+  const router = useRouter()
+  const [visibleItems, setVisibleItems] = useState(8)
+
+  const showAllGallerys = () => {
+    setVisibleItems(categories.length)
+  }
+
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
@@ -87,14 +94,14 @@ export default function Explorer() {
           </select>
         </div>
 
-        <button className="view-all-button">
+        <button className="view-all-button" onClick={showAllGallerys}>
           Ver tudo
           <ArrowUpRight size={16} />
         </button>
       </div>
 
       <div className="categories-grid">
-        {categories.slice(0, 8).map((category) => (
+        {categories.slice(0, visibleItems).map((category) => (
           <Link
             href={`/gallery/${slugify(category.name)}`}
             key={category.name}
