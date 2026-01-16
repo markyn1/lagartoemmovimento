@@ -15,7 +15,7 @@ const categories = [
   },
   {
     name: "CrossFit",
-    image: "/galeria/crossfit/1.jpg",
+    image: "/galeria/crossFit/1.jpg",
   },
   {
     name: "Natação",
@@ -23,7 +23,7 @@ const categories = [
   },
   {
     name: "Jiu-jitsu",
-    image: "/galeria/jiu-jitsu/1.jpg",
+    image: "/galeria/jiu-Jitsu/1.jpg",
   },
   {
     name: "FutVôlei",
